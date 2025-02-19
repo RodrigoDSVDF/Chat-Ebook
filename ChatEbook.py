@@ -36,7 +36,7 @@ st.markdown("""
 # Layout Superior (Título e Imagem)
 # -----------------------------------------------------
 st.title("👋 Olá! Sou seu Agente inteligente, seu parceiro em estratégias digitais")
-st.image("/content/WhatsApp Image 2025-01-13 at 17.31.23 (2).jpeg", use_container_width=True)
+st.image("Image.jpeg", use_container_width=True)
 
 # -----------------------------------------------------
 # Banco de Empatia Aprimorado
