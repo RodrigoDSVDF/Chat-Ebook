@@ -7,8 +7,8 @@ import re
 # Configuração da Página
 # -----------------------------------------------------
 st.set_page_config(
-    page_title="FERA Mentoria",
-    page_icon="🚀",
+    page_title="Guia Inteligência Aumentada ",
+    page_icon="🚀📚",
     layout="centered",
     initial_sidebar_state="collapsed"
 )
