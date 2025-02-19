@@ -35,7 +35,7 @@ st.markdown("""
 # -----------------------------------------------------
 # Layout Superior (Título e Imagem)
 # -----------------------------------------------------
-st.title("👋 Olá! Sou seu Agente inteligente, seu parceiro em estratégias digitais")
+st.title("👋 Olá! Sou seu Agente inteligente, seu parceiro em estratégias digitais e de produtividade")
 st.image("Image.jpeg", use_container_width=True)
 
 # -----------------------------------------------------
@@ -43,9 +43,9 @@ st.image("Image.jpeg", use_container_width=True)
 # -----------------------------------------------------
 EMPATIA = {
     "entusiasmo": [
-        "Parabéns por ter feito essa escolha! A sua evolução no mercado digital não é só um objetivo, é o nosso compromisso! Vamos construir esse caminho juntos! 🎉",
-        "Você está no lugar certo, vou te ajudar a desenvolver seu negócio digital de forma estratégica e eficiente 💡",
-        "Parabéns pela escolha, e aí podemos começar? 🚀",
+        "Parabéns por ter feito essa escolha! A sua evolução em produtividade e estratégias em mercado digital não é só um objetivo, é o nosso compromisso! Vamos construir esse caminho juntos! 🎉",
+        "Você está no lugar certo, vou te ajudar a ser mais produtivo e se tornar mais estratégico e eficiente 💡",
+        "Parábens por sua pela escolha, isso é sinal que você é alguém que busca sempre aprender e se aprimorar.E aí podemos começar? 🚀",
         "Estou super animado para te ajudar! 🔥"
     ],
     "diferencial": [
@@ -106,7 +106,7 @@ def gerar_resposta(step: int, input_user: str = "") -> str:
             f"Olá, {nome}!E aí Tudo bem? Eu sou seu Agente de Inteligência Aumentada e estou aqui para ajudar você a descobrir como a IA pode transformar sua vida. Posso te mostrar algo incrível hoje?"
         ),
         2: lambda: (
-            "Você sabia que a inteligência artificial não só revoluciona empresas e a indústria, mas também pode aumentar sua produtividade, melhorar seus estudos e até criar agentes especisalistas inteligentes? "
+            "Você sabia que a inteligência artificial não só revoluciona empresas a indústria e medicina, mas também pode aumentar sua produtividade, melhorar seus estudos e até criar agentes especisalistas inteligentes? "
             "Nosso ebook 'Inteligência Aumentada' é um guia que vai aumentar sua conciência sobre o uso da I.A, ele reúne dicas práticas, estratégias de automação e um passo a passo para você dominar essas ferramentas.Quer saber mais sobre isso?"
         ),
         3: lambda: (
