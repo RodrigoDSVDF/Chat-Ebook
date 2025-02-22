@@ -7,7 +7,7 @@ import re
 # Configuração da Página
 # -----------------------------------------------------
 st.set_page_config(
-    page_title="Guia Inteligência Aumentada ",
+    page_title="Manual de Alta Performance com IA ",
     page_icon="📚",
     layout="centered",
     initial_sidebar_state="collapsed"
@@ -96,14 +96,14 @@ def gerar_resposta(step: int, input_user: str = "") -> str:
     nome = st.session_state.get('nome', '')
     respostas = {
         1: lambda: (
-            f"Vamos lá, {nome}! E aí Tudo bem? Eu sou seu Agente de atendimento e estou aqui para ajudar você a descobrir como a IA pode transformar sua vida. Posso te mostrar algo incrível hoje?"
+            f"Vamos lá, {nome}! E aí Tudo bem? Eu sou seu Agente de atendimento e estou aqui para ajudar você a descobrir como nosso Manual de Alta Performance com IA pode transformar sua vida. Ficou curioso para saber mais?"
         ),
         2: lambda: (
             "Você já deve saber que a inteligência artificial já está  revolucionando empresas a indústria e até a medicina, mas sabia que você também pode aumentar suas capacidades como sua produtividade, melhorar seu resultado nos estudos e até aumentar suas vendas?"
-            "Nosso Guia prático 'Inteligência Aumentada' é um ferramenta essencial que vai aumentar sua consciência sobre o uso da I.A e melhorar seus resultados. Ele reúne materiais com conteúdo prático, estratégias voltadas para automação, ferramentas exclusivas e um passo a passo para você dominar esse universo em constante transformação. Como você pretende usar a I.A? Me fale um pouco sobre isso {nome}"
+            "Manual de Alta Performance com IA" é um ferramenta essencial que vai aumentar sua consciência sobre o uso da I.A e melhorar seus resultados. Ele reúne materiais com conteúdo prático, estratégias voltadas para automação, ferramentas exclusivas e um passo a passo para você dominar esse universo em constante transformação. Como você pretende usar a I.A? Me fale um pouco sobre isso {nome}"
         ),
         3: lambda: (
-            "Muito bem, por isso guia prático é perfeito pra você! Nele, você vai aprender:\n"
+            "Muito bem, por isso Manual de Alta Performance com IA é perfeito pra você! Nele, você vai aprender:\n"
             "1) A história e os avanços da IA;\n"
             "2) Um reflexão filósifica sobre os impactos dessa tecnologia e o pensamento humano;\n"
             "3) Técnicas de engenharia de prompt e personalização do seu GPT, outras tecnologias eficiêntes ;\n"
@@ -127,8 +127,8 @@ def gerar_resposta(step: int, input_user: str = "") -> str:
         ),
        6: lambda: (
             f"Muito bem {nome}! Se você está pronto para dar o próximo passo e aproveitar todas essas vantagens, "
-            "garanta agora sua cópia do 'Guia prático - Inteligência Aumentada'.\n\n"
-           "- Vantagens de adquir esse E-book.\n"
+            "garanta agora sua cópia do 'Manual de Alta Performance com IA'.\n\n"
+           "- Vantagens de adquir esse Manual.\n"
            "- Atualização vitalícia, sempre será atualizado regularmente com novos contédos que poderão atender a sua necessidade.\n"
            "- Após adiquirir o guia nele estará disponível um contato, caso queira um serviço exclusivo poderá receber sua necessidade sob demanda.\n"
             "Clique no botão abaixo para adquirir guia prático e começar essa jornada transformadora por apenas 19,90."
@@ -159,7 +159,7 @@ def main():
     if st.session_state.step == 0 and not st.session_state.mensagens:
         time.sleep(4)
         saudacao = (
-            "🌟 **Bem-vindo(a) ao Guia de Prático de Inteligência aumentada!**\n\n"
+            "🌟 **Bem-vindo(a) ao Manual de Alta Performance com IA!**\n\n"
             "Sou seu Agente de atendimento, especialista em inteligência artificial. Mas antes, me diga: como posso te chamar? 😊"
         )
         with st.chat_message("assistant"):
@@ -198,8 +198,8 @@ def main():
 
         # ✅ Exibição do botão para adquirir o Ebook (aparece quando step >= 6)
     if st.session_state.step >= 6:
-        st.write("Clique abaixo para adquirir seu Guia Prático:")
-        if st.button("Adquirir Guia Prático"):
+        st.write("Clique abaixo para adquirir seu Manual:")
+        if st.button("Manual de Alta Performance com IA):
             link = "https://pay.cakto.com.br/5dUKrWD"
             st.markdown(f"[Clique aqui para adquirir seu Guia Prático]({link})", unsafe_allow_html=True)
 
