@@ -7,7 +7,7 @@ import re
 # Configuração da Página
 # -----------------------------------------------------
 st.set_page_config(
-    page_title="Manual de Alta Performance com IA ",
+    page_title="Manual de Alta Performance com IA",
     page_icon="📚",
     layout="centered",
     initial_sidebar_state="collapsed"
@@ -199,9 +199,9 @@ def main():
         # ✅ Exibição do botão para adquirir o Ebook (aparece quando step >= 6)
     if st.session_state.step >= 6:
         st.write("Clique abaixo para adquirir seu Manual:")
-        if st.button("Manual de Alta Performance com IA):
+        if st.button("Manual de Alta Performance com IA"):
             link = "https://pay.cakto.com.br/5dUKrWD"
-            st.markdown(f"[Clique aqui para adquirir seu Guia Prático]({link})", unsafe_allow_html=True)
+            st.markdown(f"[Clique aqui para adquirir seu Manual de Alta Performance]({link})", unsafe_allow_html=True)
 
 
 # -----------------------------------------------------
