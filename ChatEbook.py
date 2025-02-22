@@ -100,7 +100,7 @@ def gerar_resposta(step: int, input_user: str = "") -> str:
         ),
         2: lambda: (
             "Você já deve saber que a inteligência artificial já está  revolucionando empresas a indústria e até a medicina, mas sabia que você também pode aumentar suas capacidades como sua produtividade, melhorar seu resultado nos estudos e até aumentar suas vendas?"
-            "Nosso Guia prático 'Inteligência Aumentada' é um ferramenta essencial que vai aumentar sua consciência sobre o uso da I.A e melhorar seus resultados. Ele reúne dicas práticas, estratégias voltadas para automação, ferramentas exclusivas e um passo a passo para você dominar esse universo em constante transformação. Como você pretende usar a I.A? Me fale um pouco sobre isso"
+            "Nosso Guia prático 'Inteligência Aumentada' é um ferramenta essencial que vai aumentar sua consciência sobre o uso da I.A e melhorar seus resultados. Ele reúne materiais com conteúdo prático, estratégias voltadas para automação, ferramentas exclusivas e um passo a passo para você dominar esse universo em constante transformação. Como você pretende usar a I.A? Me fale um pouco sobre isso {nome}"
         ),
         3: lambda: (
             "Muito bem, por isso guia prático é perfeito pra você! Nele, você vai aprender:\n"
@@ -198,8 +198,8 @@ def main():
 
         # ✅ Exibição do botão para adquirir o Ebook (aparece quando step >= 6)
     if st.session_state.step >= 6:
-        st.write("Clique abaixo para adquirir o Ebook:")
-        if st.button("Adquirir Ebook"):
+        st.write("Clique abaixo para adquirir seu Guia Prático:")
+        if st.button("Adquirir Guia Prático"):
             link = "https://pay.cakto.com.br/5dUKrWD"
             st.markdown(f"[Clique aqui para adquirir seu Guia Prático]({link})", unsafe_allow_html=True)
 
