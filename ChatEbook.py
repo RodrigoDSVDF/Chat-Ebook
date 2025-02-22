@@ -38,7 +38,7 @@ EMPATIA = {
     "entusiasmo": [
         "Parabéns por ter feito essa escolha! A sua evolução em produtividade e estratégias em mercado digital não é só um objetivo, é o nosso compromisso! Vamos construir esse caminho juntos! 🎉",
         "Você está no lugar certo, vou te ajudar a ser mais produtivo e se tornar mais estratégico e eficiente 💡",
-        "Parábens por sua pela escolha, isso é sinal que você é alguém que busca sempre aprender e se aprimorar.E aí podemos começar? 🚀",
+        "Parábens por sua pela escolha, isso é sinal que você é alguém que busca sempre aprender e se aprimorar. E aí preparado para começar? 🚀",
         "Estou super animado para te ajudar! 🔥"
     ],
     "diferencial": [
@@ -96,11 +96,11 @@ def gerar_resposta(step: int, input_user: str = "") -> str:
     nome = st.session_state.get('nome', '')
     respostas = {
         1: lambda: (
-            f"Vamos lá, {nome}!E aí Tudo bem? Eu sou seu Agente de atendimento inteligente e estou aqui para ajudar você a descobrir como a IA pode transformar sua vida. Posso te mostrar algo incrível hoje?"
+            f"Vamos lá, {nome}! E aí Tudo bem? Eu sou seu Agente de atendimento inteligente e estou aqui para ajudar você a descobrir como a IA pode transformar sua vida. Posso te mostrar algo incrível hoje?"
         ),
         2: lambda: (
             "Você já deve saber que a inteligência artificial já está  revolucionando empresas a indústria e medicina, mas sabia que você também pode aumentar sua produtividade, melhorar seus estudos e até aumentar suas vendas?"
-            "Nosso ebook 'Inteligência Aumentada' é um guia que vai aumentar sua conciência sobre o uso da I.A, ele reúne dicas práticas, estratégias de automação e um passo a passo para você dominar essas ferramentas. Como você pretende usar a I.A? Me fale um pouco sobre isso"
+            "Nosso E-book 'Inteligência Aumentada' é um guia que vai aumentar sua conciência sobre o uso da I.A, ele reúne dicas práticas, estratégias de automação e um passo a passo para você dominar essas ferramentas. Como você pretende usar a I.A? Me fale um pouco sobre isso"
         ),
         3: lambda: (
             "Muito bem, por isso guia prático é perfeito pra você! Nele, você vai aprender:\n"
