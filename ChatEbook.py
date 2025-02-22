@@ -72,7 +72,7 @@ def efeito_humano(texto: str):
             f'<div class="stChatMessage mensagem-fixa">{mensagem}</div>',
             unsafe_allow_html=True
         )
-        time.sleep(0.04)
+        time.sleep(0.03)
 
 # -----------------------------------------------------
 # Extração de Nome Aprimorada
