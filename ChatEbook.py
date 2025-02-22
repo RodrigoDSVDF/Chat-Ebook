@@ -96,11 +96,11 @@ def gerar_resposta(step: int, input_user: str = "") -> str:
     nome = st.session_state.get('nome', '')
     respostas = {
         1: lambda: (
-            f"Vamos lá, {nome}! E aí Tudo bem? Eu sou seu Agente de atendimento inteligente e estou aqui para ajudar você a descobrir como a IA pode transformar sua vida. Posso te mostrar algo incrível hoje?"
+            f"Vamos lá, {nome}! E aí Tudo bem? Eu sou seu Agente de atendimento e estou aqui para ajudar você a descobrir como a IA pode transformar sua vida. Posso te mostrar algo incrível hoje?"
         ),
         2: lambda: (
-            "Você já deve saber que a inteligência artificial já está  revolucionando empresas a indústria e medicina, mas sabia que você também pode aumentar sua produtividade, melhorar seus estudos e até aumentar suas vendas?"
-            "Nosso E-book 'Inteligência Aumentada' é um guia que vai aumentar sua consciência sobre o uso da I.A, ele reúne dicas práticas, estratégias de automação e um passo a passo para você dominar essas ferramentas. Como você pretende usar a I.A? Me fale um pouco sobre isso"
+            "Você já deve saber que a inteligência artificial já está  revolucionando empresas a indústria e até a medicina, mas sabia que você também pode aumentar suas capacidades como sua produtividade, melhorar seu resultado nos estudos e até aumentar suas vendas?"
+            "Nosso Guia prático 'Inteligência Aumentada' é um ferramenta essencial que vai aumentar sua consciência sobre o uso da I.A e melhorar seus resultados. Ele reúne dicas práticas, estratégias voltadas para automação, ferramentas exclusivas e um passo a passo para você dominar esse universo em constante transformação. Como você pretende usar a I.A? Me fale um pouco sobre isso"
         ),
         3: lambda: (
             "Muito bem, por isso guia prático é perfeito pra você! Nele, você vai aprender:\n"
@@ -127,11 +127,11 @@ def gerar_resposta(step: int, input_user: str = "") -> str:
         ),
        6: lambda: (
             f"Muito bem {nome}! Se você está pronto para dar o próximo passo e aproveitar todas essas vantagens, "
-            "garanta agora sua cópia do 'Ebook - Inteligência Aumentada'.\n\n"
+            "garanta agora sua cópia do 'Guia prático - Inteligência Aumentada'.\n\n"
            "- Vantagens de adquir esse E-book.\n"
            "- Atualização vitalícia, sempre será atualizado regularmente com novos contédos que poderão atender a sua necessidade.\n"
-           "- Após adiquirir no e-book estará disponível um contato, caso queira um serviço exclusivo poderá receber sua necessidade sob demanda.\n"
-            "Clique no botão abaixo para adquirir o ebook e começar essa jornada transformadora por apenas 19,90."
+           "- Após adiquirir o guia nele estará disponível um contato, caso queira um serviço exclusivo poderá receber sua necessidade sob demanda.\n"
+            "Clique no botão abaixo para adquirir guia prático e começar essa jornada transformadora por apenas 19,90."
         ),
         7: lambda: (
             f"Fico feliz em ajudar você a explorar o mundo da IA, {nome}! Se precisar de mais informações ou quiser conversar sobre outros temas, estarei sempre por aqui. Vamos juntos transformar o futuro com a inteligência artificial!"
@@ -159,8 +159,8 @@ def main():
     if st.session_state.step == 0 and not st.session_state.mensagens:
         time.sleep(4)
         saudacao = (
-            "🌟 **Bem-vindo(a) ao Guia de Inteligência aumentada!**\n\n"
-            "Sou seu Agente Inteligente, especialista em inteligência artificial. Mas antes, me diga: como posso te chamar? 😊"
+            "🌟 **Bem-vindo(a) ao Guia de Prático de Inteligência aumentada!**\n\n"
+            "Sou seu Agente de atendimento, especialista em inteligência artificial. Mas antes, me diga: como posso te chamar? 😊"
         )
         with st.chat_message("assistant"):
             efeito_humano(saudacao)
@@ -181,7 +181,7 @@ def main():
                 st.session_state.step = 1
                 resposta = (
                     f"Muito prazer em te conhecer, {nome}! {random.choice(EMPATIA['entusiasmo'])}\n\n"
-                    "Se você chegou até aqui é sinal que ficou interessado em saber mais sobre sobre o produto. Então me diz, você está preparado para essa jornada de inovação?"
+                    "Se você chegou até aqui é sinal que ficou interessado em saber mais sobre sobre nosso produto. Então me diz, você está preparado para essa jornada de inovação?"
                 )
             else:
                 resposta = "✨ Quero te oferecer o melhor atendimento! Como devo te chamar?"
@@ -201,7 +201,7 @@ def main():
         st.write("Clique abaixo para adquirir o Ebook:")
         if st.button("Adquirir Ebook"):
             link = "https://pay.cakto.com.br/5dUKrWD"
-            st.markdown(f"[Clique aqui para adquirir o Ebook]({link})", unsafe_allow_html=True)
+            st.markdown(f"[Clique aqui para adquirir seu Guia Prático]({link})", unsafe_allow_html=True)
 
 
 # -----------------------------------------------------
