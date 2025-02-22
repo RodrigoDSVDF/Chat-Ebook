@@ -100,7 +100,7 @@ def gerar_resposta(step: int, input_user: str = "") -> str:
         ),
         2: lambda: (
             "Você já deve saber que a inteligência artificial já está  revolucionando empresas a indústria e até a medicina, mas sabia que você também pode aumentar suas capacidades como sua produtividade, melhorar seu resultado nos estudos e até aumentar suas vendas?"
-            "Manual de Alta Performance com IA" é um ferramenta essencial que vai aumentar sua consciência sobre o uso da I.A e melhorar seus resultados. Ele reúne materiais com conteúdo prático, estratégias voltadas para automação, ferramentas exclusivas e um passo a passo para você dominar esse universo em constante transformação. Como você pretende usar a I.A? Me fale um pouco sobre isso {nome}"
+            "Manual de Alta Performance com IA" é um ferramenta essencial que vai aumentar sua consciência sobre o uso da I.A no dia a dia e melhorar seus resultados. Ele reúne materiais com conteúdo prático, estratégias voltadas para automação, ferramentas exclusivas e um passo a passo para você dominar esse universo em constante transformação. Como você pretende usar a I.A? Me fale um pouco sobre isso {nome}"
         ),
         3: lambda: (
             "Muito bem, por isso Manual de Alta Performance com IA é perfeito pra você! Nele, você vai aprender:\n"
@@ -131,7 +131,7 @@ def gerar_resposta(step: int, input_user: str = "") -> str:
            "- Vantagens de adquir esse Manual.\n"
            "- Atualização vitalícia, sempre será atualizado regularmente com novos contédos que poderão atender a sua necessidade.\n"
            "- Após adiquirir o guia nele estará disponível um contato, caso queira um serviço exclusivo poderá receber sua necessidade sob demanda.\n"
-            "Clique no botão abaixo para adquirir guia prático e começar essa jornada transformadora por apenas 19,90."
+            "Clique no botão abaixo para adquirir Manual de Alta Performance com IA e começar essa jornada transformadora por apenas 19,90."
         ),
         7: lambda: (
             f"Fico feliz em ajudar você a explorar o mundo da IA, {nome}! Se precisar de mais informações ou quiser conversar sobre outros temas, estarei sempre por aqui. Vamos juntos transformar o futuro com a inteligência artificial!"
