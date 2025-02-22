@@ -100,7 +100,7 @@ def gerar_resposta(step: int, input_user: str = "") -> str:
         ),
         2: lambda: (
             "Você já deve saber que a inteligência artificial já está  revolucionando empresas a indústria e medicina, mas sabia que você também pode aumentar sua produtividade, melhorar seus estudos e até aumentar suas vendas?"
-            "Nosso E-book 'Inteligência Aumentada' é um guia que vai aumentar sua conciência sobre o uso da I.A, ele reúne dicas práticas, estratégias de automação e um passo a passo para você dominar essas ferramentas. Como você pretende usar a I.A? Me fale um pouco sobre isso"
+            "Nosso E-book 'Inteligência Aumentada' é um guia que vai aumentar sua consciência sobre o uso da I.A, ele reúne dicas práticas, estratégias de automação e um passo a passo para você dominar essas ferramentas. Como você pretende usar a I.A? Me fale um pouco sobre isso"
         ),
         3: lambda: (
             "Muito bem, por isso guia prático é perfeito pra você! Nele, você vai aprender:\n"
