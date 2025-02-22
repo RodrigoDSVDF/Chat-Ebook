@@ -105,12 +105,12 @@ def gerar_resposta(step: int, input_user: str = "") -> str:
         3: lambda: (
             "Muito bem, por isso guia prático é perfeito pra você! Nele, você vai aprender:\n"
             "1) A história e os avanços da IA;\n"
-            "1) Um reflexão filósifica sobre os impactos dessa tecnologia e o pensamento humano;\n"
-            "2) Técnicas de engenharia de prompt e personalização do seu GPT, outras tecnologias eficiêntes ;\n"
-            "3) Como acessar ferramentas de automação que facilitam seu dia a dia;\n"
-            "4) Lista das melhores ferramentas da atualidades para começar a usar hoje mesmo;\n"
-            "5) Prompts desenvolvidos sob demanda para seus negócios;\n"
-            "6) Estratégias para usar a IA de forma positiva, ampliando sua consciência e preparando você para os desafios do futuro.\n\n"
+            "2) Um reflexão filósifica sobre os impactos dessa tecnologia e o pensamento humano;\n"
+            "3) Técnicas de engenharia de prompt e personalização do seu GPT, outras tecnologias eficiêntes ;\n"
+            "4) Como acessar ferramentas de automação que facilitam seu dia a dia;\n"
+            "5) Lista das melhores ferramentas da atualidades para começar a usar hoje mesmo;\n"
+            "6) Prompts desenvolvidos sob demanda para seus negócios;\n"
+            "7) Estratégias para usar a IA de forma positiva, ampliando sua consciência e preparando você para os desafios do futuro.\n\n"
             "Imagine ter acesso a insights que podem transformar seus estudos e impulsionar seu sucesso! Incrível não acha? Podemos continuar?"
         ),
         4: lambda: (
