@@ -14,24 +14,17 @@ st.set_page_config(
 )
 
 # ✅ CSS Personalizado para Responsividade no Celular e Chat Estável
-st.markdown("""
+
+st.markdown(
+    """
     <style>
-    [data-testid="collapsedControl"] { display: none; }
-    .stChatInput { position: fixed; bottom: 20px; width: 100%; }
-    .stChatMessage { word-wrap: break-word; overflow-wrap: break-word; font-size: 16px; }
-    .stTextArea { font-size: 14px; }
-    @media (max-width: 768px) {
-        .stChatMessage { font-size: 14px !important; line-height: 1.4; padding: 10px; }
-        .stTextArea { font-size: 12px; }
-    }
-    .st-emotion-cache-1d391kg { padding-bottom: 100px !important; }
-    /* Classe para manter uma altura mínima e evitar reposicionamento durante a digitação */
-    .mensagem-fixa {
-        min-height: 80px;
+    .stChatMessage {
+        max-width: 600px;
     }
     </style>
-    """, unsafe_allow_html=True)
-
+    """,
+    unsafe_allow_html=True
+)
 # -----------------------------------------------------
 # Layout Superior (Título e Imagem)
 # -----------------------------------------------------
