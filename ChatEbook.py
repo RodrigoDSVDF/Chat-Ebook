@@ -96,17 +96,19 @@ def gerar_resposta(step: int, input_user: str = "") -> str:
     nome = st.session_state.get('nome', '')
     respostas = {
         1: lambda: (
-            f"Olá, {nome}!E aí Tudo bem? Eu sou seu Agente de Inteligência Aumentada e estou aqui para ajudar você a descobrir como a IA pode transformar sua vida. Posso te mostrar algo incrível hoje?"
+            f"Vamos lá, {nome}!E aí Tudo bem? Eu sou seu Agente de atendimento inteligente e estou aqui para ajudar você a descobrir como a IA pode transformar sua vida. Posso te mostrar algo incrível hoje?"
         ),
         2: lambda: (
-            "Você sabia que a inteligência artificial não só revoluciona empresas a indústria e medicina, mas também pode aumentar sua produtividade, melhorar seus estudos e até criar agentes especisalistas inteligentes? "
-            "Nosso ebook 'Inteligência Aumentada' é um guia que vai aumentar sua conciência sobre o uso da I.A, ele reúne dicas práticas, estratégias de automação e um passo a passo para você dominar essas ferramentas.Quer saber mais sobre isso?"
+            "Você já deve saber que a inteligência artificial já está  revolucionando empresas a indústria e medicina, mas sabia que você também pode aumentar sua produtividade, melhorar seus estudos e até aumentar suas vendas?"
+            "Nosso ebook 'Inteligência Aumentada' é um guia que vai aumentar sua conciência sobre o uso da I.A, ele reúne dicas práticas, estratégias de automação e um passo a passo para você dominar essas ferramentas. Como você pretende usar a I.A? Me fale um pouco sobre isso"
         ),
         3: lambda: (
-            "Muito bem! Nesse guia, você vai aprender:\n"
+            "Muito bem, por isso guia prático é perfeito pra você! Nele, você vai aprender:\n"
             "– A história e os avanços da IA;\n"
             "– Técnicas de engenharia de prompt e personalização do seu GPT, outras tecnologias eficiêntes ;\n"
             "– Como acessar ferramentas de automação que facilitam seu dia a dia;\n"
+            "- Lista das melhores ferramentas da atualidades para começar a usar hoje mesmo;\n"
+            "- Prompts desenvolvidos sob demanda para seus negócios;\n"
             "– Estratégias para usar a IA de forma positiva, ampliando sua consciência e preparando você para os desafios do futuro.\n\n"
             "Imagine ter acesso a insights que podem transformar seus estudos e impulsionar seu sucesso! Incrível não acha? Podemos continuar?"
         ),
@@ -125,7 +127,10 @@ def gerar_resposta(step: int, input_user: str = "") -> str:
        6: lambda: (
             f"Muito bem {nome}! Se você está pronto para dar o próximo passo e aproveitar todas essas vantagens, "
             "garanta agora sua cópia do 'Ebook - Inteligência Aumentada'.\n\n"
-            "Clique no botão abaixo para adquirir o ebook e começar essa jornada transformadora."
+           "- Vantagens de adquir esse E-book.\n"
+           "- Atualização vitalícia, sempre será atualizado regularmente com novos contédos que poderão atender a sua necessidade.\n"
+           "- Após adiquirir no e-book estará disponível um contato, caso queira um serviço exclusivo poderá receber sua necessidade sob demanda.\n'
+            "Clique no botão abaixo para adquirir o ebook e começar essa jornada transformadora por apenas 19,90."
         ),
         7: lambda: (
             f"Fico feliz em ajudar você a explorar o mundo da IA, {nome}! Se precisar de mais informações ou quiser conversar sobre outros temas, estarei sempre por aqui. Vamos juntos transformar o futuro com a inteligência artificial!"
@@ -175,7 +180,7 @@ def main():
                 st.session_state.step = 1
                 resposta = (
                     f"Muito prazer em te conhecer, {nome}! {random.choice(EMPATIA['entusiasmo'])}\n\n"
-                    "Estamos prontos para levar você numa viagem pelo universo da Inteligência Aumentada. E você, está preparado para essa jornada de inovação?"
+                    "Se você chegou até aqui é sinal que vocÊ ficou interessado em saber mais sobre sobre o produto. Então me diz, você está preparado para essa jornada de inovação?"
                 )
             else:
                 resposta = "✨ Quero te oferecer o melhor atendimento! Como devo te chamar?"
