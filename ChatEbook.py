@@ -129,7 +129,7 @@ def gerar_resposta(step: int, input_user: str = "") -> str:
             "garanta agora sua cópia do 'Ebook - Inteligência Aumentada'.\n\n"
            "- Vantagens de adquir esse E-book.\n"
            "- Atualização vitalícia, sempre será atualizado regularmente com novos contédos que poderão atender a sua necessidade.\n"
-           "- Após adiquirir no e-book estará disponível um contato, caso queira um serviço exclusivo poderá receber sua necessidade sob demanda.\n'
+           "- Após adiquirir no e-book estará disponível um contato, caso queira um serviço exclusivo poderá receber sua necessidade sob demanda.\n"
             "Clique no botão abaixo para adquirir o ebook e começar essa jornada transformadora por apenas 19,90."
         ),
         7: lambda: (
