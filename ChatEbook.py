@@ -103,7 +103,7 @@ def gerar_resposta(step: int, input_user: str = "") -> str:
             ' O Manual de Alta Performance com IA é uma ferramenta essencial que vai aumentar sua consciência sobre o uso da I.A no dia a dia e melhorar seus resultados. Ele reúne materiais com conteúdo prático, estratégias voltadas para automação, ferramentas exclusivas e um passo a passo para você dominar esse universo em constante transformação. Como você pretende usar a I.A? Me fale um pouco sobre isso'
         ),
         3: lambda: (
-            "Muito bem, por isso Manual de Alta Performance com IA é perfeito pra você! Nele, você vai aprender:\n"
+            "Muito bem, por isso o Manual de Alta Performance com IA é perfeito pra você! Nele, você vai aprender:\n"
             "1) A história e os avanços da IA;\n"
             "2) Um reflexão filósifica sobre os impactos dessa tecnologia e o pensamento humano;\n"
             "3) Técnicas de engenharia de prompt e personalização do seu GPT, outras tecnologias eficiêntes ;\n"
