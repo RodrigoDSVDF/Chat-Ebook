@@ -100,7 +100,7 @@ def gerar_resposta(step: int, input_user: str = "") -> str:
         ),
         2: lambda: (
             "Você já deve saber que a inteligência artificial já está  revolucionando empresas a indústria e até a medicina, mas sabia que você também pode aumentar suas capacidades como sua produtividade, melhorar seu resultado nos estudos e até aumentar suas vendas?"
-            'Manual de Alta Performance com IA é uma ferramenta essencial que vai aumentar sua consciência sobre o uso da I.A no dia a dia e melhorar seus resultados. Ele reúne materiais com conteúdo prático, estratégias voltadas para automação, ferramentas exclusivas e um passo a passo para você dominar esse universo em constante transformação. Como você pretende usar a I.A? Me fale um pouco sobre isso'
+            ' O Manual de Alta Performance com IA é uma ferramenta essencial que vai aumentar sua consciência sobre o uso da I.A no dia a dia e melhorar seus resultados. Ele reúne materiais com conteúdo prático, estratégias voltadas para automação, ferramentas exclusivas e um passo a passo para você dominar esse universo em constante transformação. Como você pretende usar a I.A? Me fale um pouco sobre isso'
         ),
         3: lambda: (
             "Muito bem, por isso Manual de Alta Performance com IA é perfeito pra você! Nele, você vai aprender:\n"
