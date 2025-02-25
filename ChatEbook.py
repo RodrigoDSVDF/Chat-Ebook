@@ -28,7 +28,7 @@ st.markdown(
 # -----------------------------------------------------
 # Layout Superior (Título e Imagem)
 # -----------------------------------------------------
-st.title("👋 Olá! Sou Artheris o seu Agente de atendimento inteligente, seu parceiro em estratégias digitais e de produtividade")
+st.title("👋 Olá! Sou o seu Agente de atendimento inteligente, seu parceiro em estratégias digitais e de produtividade")
 st.image("hello.png", use_container_width=True)
 
 # -----------------------------------------------------
@@ -96,11 +96,11 @@ def gerar_resposta(step: int, input_user: str = "") -> str:
     nome = st.session_state.get('nome', '')
     respostas = {
         1: lambda: (
-            f"Vamos lá, {nome}! E aí Tudo bem? Eu sou o Artheris seu Agente de atendimento e estou aqui para ajudar você a descobrir como nosso Manual de Alta Performance com IA pode transformar sua vida. Ficou curioso para saber mais?"
+            f"Vamos lá, {nome}! E aí Tudo bem? Eu estou aqui para ajudar você a descobrir como nosso Manual de Alta Performance com IA pode transformar sua vida. Ficou curioso para saber mais?"
         ),
         2: lambda: (
-            "Você já deve saber que a inteligência artificial já está  revolucionando empresas a indústria e até a medicina, mas sabia que você também pode aumentar suas capacidades como sua produtividade, melhorar seu resultado nos estudos e até aumentar suas vendas?"
-            ' O Manual de Alta Performance com IA é uma ferramenta essencial que vai aumentar sua consciência sobre o uso da I.A no dia a dia e melhorar seus resultados. Ele reúne materiais com conteúdo prático, estratégias voltadas para automação, ferramentas exclusivas e um passo a passo para você dominar esse universo em constante transformação. Como você pretende usar a I.A? Me fale um pouco sobre isso'
+            "Você já deve saber que a inteligência artificial já está  revolucionando empresas a indústria e até a medicina, mas sabia que você também pode aumentar suas capacidades como sua produtividade, melhorar seus resultados nos estudos e até aumentar suas vendas?"
+            ' O Manual de Alta Performance com IA é uma ferramenta essencial que vai aumentar sua consciência sobre o uso da I.A no dia a dia e potencializar seus resultados. Ele reúne materiais com conteúdos práticos, estratégias voltadas para automação, ferramentas exclusivas e um passo a passo para você dominar esse universo em constante transformação. Como você pretende usar a I.A? Me fale um pouco sobre isso'
         ),
         3: lambda: (
             "Muito bem, por isso o Manual de Alta Performance com IA é perfeito pra você! Nele, você vai aprender:\n"
@@ -160,7 +160,7 @@ def main():
         time.sleep(4)
         saudacao = (
             "🌟 **Bem-vindo(a) ao Manual de Alta Performance com IA!**\n\n"
-            "Sou seu Agente de atendimento, especialista em inteligência artificial. Mas antes, me diga: como posso te chamar? 😊"
+            "Sou o Artheris seu Agente de atendimento, especialista em inteligência artificial. Mas antes, me diga: como posso te chamar? 😊"
         )
         with st.chat_message("assistant"):
             efeito_humano(saudacao)
