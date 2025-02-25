@@ -28,7 +28,7 @@ st.markdown(
 # -----------------------------------------------------
 # Layout Superior (Título e Imagem)
 # -----------------------------------------------------
-st.title("👋 Olá! Sou o seu Agente de atendimento inteligente, seu parceiro em estratégias digitais e de produtividade")
+st.title("👋 Olá! Sou Artheris o seu Agente de atendimento inteligente, seu parceiro em estratégias digitais e de produtividade")
 st.image("hello.png", use_container_width=True)
 
 # -----------------------------------------------------
@@ -96,7 +96,7 @@ def gerar_resposta(step: int, input_user: str = "") -> str:
     nome = st.session_state.get('nome', '')
     respostas = {
         1: lambda: (
-            f"Vamos lá, {nome}! E aí Tudo bem? Eu sou o Aerheris seu Agente de atendimento e estou aqui para ajudar você a descobrir como nosso Manual de Alta Performance com IA pode transformar sua vida. Ficou curioso para saber mais?"
+            f"Vamos lá, {nome}! E aí Tudo bem? Eu sou o Artheris seu Agente de atendimento e estou aqui para ajudar você a descobrir como nosso Manual de Alta Performance com IA pode transformar sua vida. Ficou curioso para saber mais?"
         ),
         2: lambda: (
             "Você já deve saber que a inteligência artificial já está  revolucionando empresas a indústria e até a medicina, mas sabia que você também pode aumentar suas capacidades como sua produtividade, melhorar seu resultado nos estudos e até aumentar suas vendas?"
