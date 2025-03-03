@@ -203,9 +203,9 @@ def gerar_resposta(step: int, input_user: str = "") -> str:
         4: lambda: (
             "Gostaria de saber como essas estratégias podem ser aplicadas no seu dia a dia? Posso te contar mais sobre algum tópico específico, como a criação de chatbots ou as ferramentas de automação?"
         ),
-        4.5: lambda: "Por favor, escolha uma opção válida digitando o número correspondente (de 1 a 6). Qual assunto te interessa mais?",
+        4.5: lambda: "Por favor, escolha uma opção válida digitando o número correspondente (de 1 a 6). Qual dos assuntos que comentei que te interessam mais?",
         5: lambda: (
-            "Showww!!! Vamos lá! Para personalizar melhor nossa conversa, por favor me diga: você gostaria de saber mais sobre\n"
+            "Showww!!! Vamos lá! Para personalizar melhor nossa conversa vou pedir que escolha mais uma das opções, por favor me diga: você gostaria de saber mais sobre\n"
             "1) Criação de Chatbots Inteligentes ou\n"
             "2) Prompts personalizados ou\n"
             "3) Transcrição de videos para análise de conteúdo ou\n"
