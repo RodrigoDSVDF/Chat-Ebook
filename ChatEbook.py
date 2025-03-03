@@ -48,7 +48,7 @@ st.markdown(
 # Layout Superior (Título e Imagem)
 # -----------------------------------------------------
 st.title("👋 Olá! Sou o seu Agente de atendimento inteligente, seu parceiro em estratégias digitais e de produtividade")
-st.image("hello.png", use_container_width=True)
+st.image("Design sem nome (5).png", use_container_width=True)
 
 # -----------------------------------------------------
 # Banco de Empatia Aprimorado
