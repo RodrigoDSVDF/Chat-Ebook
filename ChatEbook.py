@@ -138,10 +138,8 @@ def verificar_resposta(user_input: str, tipo: str) -> tuple:
         match = re.search(padrao, user_input_lower)
         if match:
             opcao = int(match.group(0))
-            if 1 <= opcao <= 6:
-                return opcao, ""
         
-        return None, "Por favor, escolha uma opção válida entre 1 e 6, digitando o número correspondente. Qual opção você prefere?"
+
     
     return None, "Não entendi sua resposta. Poderia responder novamente, por favor?"
 
@@ -203,7 +201,7 @@ def gerar_resposta(step: int, input_user: str = "") -> str:
         4: lambda: (
             "Gostaria de saber como essas estratégias podem ser aplicadas no seu dia a dia? Posso te contar mais sobre algum tópico específico, como a criação de chatbots ou as ferramentas de automação?"
         ),
-        4.5: lambda: "Por favor, escolha uma opção válida digitando o número correspondente (de 1 a 6). Qual dos assuntos que comentei anteriormente que te interessam mais? So para eu entender o que mais te interessa.",
+        4.5: lambda: "Pois bem, {nome}! Você acaba de encontrar um guia que vai te orientar no seu processo para que você desenvolva seus projetos de forma eficaz, e que consiga realizar muito mais. E ai ficou animado?",
         5: lambda: (
             "Showww!!! Vamos lá! Para personalizar ainda mais nossa conversa, vou pedir que escolha mais uma das opções, por favor me diga: você gostaria de saber mais sobre\n"
             "1) Criação de Chatbots Inteligentes ou\n"
