@@ -85,12 +85,11 @@ EMPATIA = {
 def efeito_humano(texto: str):
     container = st.empty()
     mensagem = ""
-    # Pré-aloca espaço para evitar reposicionamento durante a digitação
-    container.markdown('<div class="mensagem-fixa"></div>', unsafe_allow_html=True)
+    # Atualiza o container a cada nova letra sem pré-escrever um div vazio
     for char in texto:
         mensagem += char
         container.markdown(
-            f'<div class="stChatMessage mensagem-fixa">{mensagem}</div>',
+            f'<div class="stChatMessage">{mensagem}</div>',
             unsafe_allow_html=True
         )
         time.sleep(0.03)
@@ -283,21 +282,19 @@ def main():
                 else:
                     resposta = "✨ Quero te oferecer o melhor atendimento! Por favor, me diga seu nome para continuarmos."
         else:
-            # Verifica se estamos em um step decimal (validação de resposta)
+            # Verifica se estamos em um step inteiro ou decimal (validação)
             if st.session_state.step % 1 == 0:  # Se for um step inteiro, avança
                 st.session_state.step += 1
-            else:  # Se for decimal (validação), mantém ou avança dependendo da resposta
-                # Lidando com tentativas repetidas de respostas inválidas
+            else:  # Se for decimal, valida a resposta
                 if st.session_state.step in [0.5, 3.5, 4.5]:
                     resultado, _ = verificar_resposta(user_input, "sim_nao" if st.session_state.step != 4.5 else "opcao_numerica")
-                    if resultado is not None:  # Se a resposta for válida
-                        st.session_state.step = int(st.session_state.step) + 1  # Avança para o próximo step inteiro
-                    # Se for inválida, mantém o step decimal para continuar pedindo resposta válida
-                elif st.session_state.step in [0.8, 3.8]:  # Respostas para "não"
+                    if resultado is not None:
+                        st.session_state.step = int(st.session_state.step) + 1
+                elif st.session_state.step in [0.8, 3.8]:
                     resultado, _ = verificar_resposta(user_input, "sim_nao")
-                    if resultado is True:  # Se reconsiderou e disse sim
-                        st.session_state.step = int(st.session_state.step) + 1  # Avança para o próximo step inteiro
-                    else:  # Se manteve o não ou resposta inválida
+                    if resultado is True:
+                        st.session_state.step = int(st.session_state.step) + 1
+                    else:
                         st.session_state.step = 7  # Vai para o step final (despedida)
             
             resposta = gerar_resposta(st.session_state.step, user_input)
@@ -307,12 +304,18 @@ def main():
             efeito_humano(resposta)
         st.session_state.mensagens.append({"role": "assistant", "content": resposta})
 
-        # ✅ Exibição do botão para adquirir o Ebook (aparece quando step >= 6)
+    # ✅ Exibição do botão para adquirir o Ebook (aparece quando step >= 6)
     if st.session_state.step >= 6:
         st.write("Clique abaixo para adquirir seu Manual:")
         if st.button("Manual de Alta Performance com IA"):
             link = "https://pay.cakto.com.br/5dUKrWD"
-            st.markdown(f"[Clique aqui para adquirir seu Manual de Alta Performance]({link})", unsafe_allow_html=True)
+            st.markdown(f"[Clique aqui para adquirir seu Manual de Alta Performance com IA]({link})", unsafe_allow_html=True)
+            # Atualiza o step para 7 e exibe a mensagem final
+            st.session_state.step = 7
+            farewell = gerar_resposta(7, "")
+            with st.chat_message("assistant"):
+                efeito_humano(farewell)
+            st.session_state.mensagens.append({"role": "assistant", "content": farewell})
 
 # -----------------------------------------------------
 # Execução
