@@ -23,9 +23,7 @@ src="https://www.facebook.com/tr?id=640277028566260&ev=PageView&noscript=1"
 <!-- End Meta Pixel Code -->
 """
 
-# -----------------------------------------------------
-# Configuração da Página
-# -----------------------------------------------------
+
 st.set_page_config(
     page_title="Manual de Alta Performance com IA",
     page_icon="📚",
@@ -34,7 +32,6 @@ st.set_page_config(
 )
 
 # ✅ CSS Personalizado para Responsividade no Celular e Chat Estável
-
 st.markdown(
     """
     <style>
@@ -75,6 +72,11 @@ EMPATIA = {
         "Para criarmos uma estratégia sob medida...",
         "Isso vai me ajudar a potencializar seus resultados...",
         "Quanto mais detalhes, mais preciso serei... 🎯"
+    ],
+    "negativa": [
+        "É uma pena que você ainda não esteja pronto para essa jornada transformadora. Quando mudar de ideia, estarei aqui para te ajudar! 🙂",
+        "Entendo sua hesitação. É uma pena, pois essa oportunidade é realmente especial. Quando sentir que é o momento certo, ficarei feliz em retomar nossa conversa! 🌱",
+        "É uma pena que não possamos seguir juntos agora. Pense com carinho nessa oportunidade e me avise quando quiser explorar esse potencial! ✨"
     ]
 }
 
@@ -110,11 +112,74 @@ def extrair_nome(user_input: str) -> str:
     return ""
 
 # -----------------------------------------------------
+# Verificação de Respostas
+# -----------------------------------------------------
+def verificar_resposta(user_input: str, tipo: str) -> tuple:
+    user_input_lower = user_input.lower().strip()
+    
+    # Verificação para respostas afirmativas/negativas
+    if tipo == "sim_nao":
+        positivos = ["sim", "claro", "ok", "pode", "quero", "gostaria", "vamos", "beleza", "bora", "show", "interessado", "preparado", "posso", "curioso", "pronto"]
+        negativos = ["não", "nao", "nem", "jamais", "nunca", "negativo", "nope", "n"]
+        
+        for palavra in positivos:
+            if palavra in user_input_lower or re.search(fr'\b{palavra}\b', user_input_lower):
+                return True, ""
+                
+        for palavra in negativos:
+            if palavra in user_input_lower or re.search(fr'\b{palavra}\b', user_input_lower):
+                return False, random.choice(EMPATIA["negativa"])
+                
+        return None, "Não entendi sua resposta. Por favor, responda com 'sim' ou 'não'. Você gostaria de continuar?"
+    
+    # Verificação para opções numéricas
+    elif tipo == "opcao_numerica":
+        padrao = r'\b[1-6]\b'
+        match = re.search(padrao, user_input_lower)
+        if match:
+            opcao = int(match.group(0))
+            if 1 <= opcao <= 6:
+                return opcao, ""
+        
+        return None, "Por favor, escolha uma opção válida entre 1 e 6, digitando o número correspondente. Qual opção você prefere?"
+    
+    return None, "Não entendi sua resposta. Poderia responder novamente, por favor?"
+
+# -----------------------------------------------------
 # Fluxo Conversacional Aprimorado com o Ebook
 # -----------------------------------------------------
 def gerar_resposta(step: int, input_user: str = "") -> str:
     nome = st.session_state.get('nome', '')
+    
+    # Lógica para verificar respostas e condições especiais
+    if step == 1:
+        resultado, mensagem = verificar_resposta(input_user, "sim_nao")
+        if resultado is None:
+            st.session_state.step = 0.5  # Cria um step intermediário para pedir que responda novamente
+            return mensagem
+        elif resultado is False:
+            st.session_state.step = 0.8  # Cria um step para quando usuário diz não
+            return mensagem
+    
+    if step == 4:
+        resultado, mensagem = verificar_resposta(input_user, "sim_nao")
+        if resultado is None:
+            st.session_state.step = 3.5
+            return mensagem
+        elif resultado is False:
+            st.session_state.step = 3.8
+            return mensagem
+    
+    if step == 5:
+        resultado, mensagem = verificar_resposta(input_user, "opcao_numerica")
+        if resultado is None:
+            st.session_state.step = 4.5
+            return mensagem
+    
+    # Fluxo de respostas principal
     respostas = {
+        0.5: lambda: "Não entendi sua resposta. Por favor, responda se você está preparado para essa jornada de inovação com 'sim' ou 'não'.",
+        0.8: lambda: "É uma pena que você ainda não esteja preparado. Quando se sentir pronto, estarei aqui para te ajudar. Quer tentar mais uma vez?",
         1: lambda: (
             f"Vamos lá, {nome}! E aí Tudo bem? Eu estou aqui para ajudar você a descobrir como nosso Manual de Alta Performance com IA pode transformar sua vida. Ficou curioso para saber mais?"
         ),
@@ -133,22 +198,26 @@ def gerar_resposta(step: int, input_user: str = "") -> str:
             "7) Estratégias para usar a IA de forma positiva, ampliando sua consciência e preparando você para os desafios do futuro.\n\n"
             "Imagine ter acesso a insights que podem transformar seus estudos e impulsionar seu sucesso! Incrível não acha? Podemos continuar?"
         ),
+        3.5: lambda: "Desculpe, não entendi sua resposta. Por favor, responda com 'sim' se gostaria de continuar ou 'não' caso contrário.",
+        3.8: lambda: "É uma pena que você não queira continuar agora. Quando quiser conhecer mais sobre essas estratégias transformadoras, estarei aqui. Gostaria de reconsiderar?",
         4: lambda: (
             "Gostaria de saber como essas estratégias podem ser aplicadas no seu dia a dia? Posso te contar mais sobre algum tópico específico, como a criação de chatbots ou as ferramentas de automação?"
         ),
+        4.5: lambda: "Por favor, escolha uma opção válida digitando o número correspondente (de 1 a 6). Qual assunto te interessa mais?",
         5: lambda: (
             "Showww!!! Vamos lá! Para personalizar melhor nossa conversa, por favor me diga: você gostaria de saber mais sobre\n"
             "1) Criação de Chatbots Inteligentes ou\n"
-            "3) Prompts personalizados ou\n"
-            "4) Transcrição de videos para análise de conteúdo ou\n"
-            "5) Agentes especialistas para análise de dados ou\n"
-            "6) Ferramentas de Automação de Processos?\n\n"
+            "2) Prompts personalizados ou\n"
+            "3) Transcrição de videos para análise de conteúdo ou\n"
+            "4) Agentes especialistas para análise de dados ou\n"
+            "5) Ferramentas de Automação de Processos?\n"
+            "6) Todos os tópicos acima\n\n"
             "Responda com o número correspondente beleza?"
         ),
        6: lambda: (
             f"Muito bem {nome}! Se você está pronto para dar o próximo passo e aproveitar todas essas vantagens, "
             "garanta agora sua cópia do 'Manual de Alta Performance com IA'.\n\n"
-           "- Vantagens de adquir esse Manual.\n"
+           "- Vantagens de adquir esse Manual:\n"
            "- Atualização vitalícia, sempre será atualizado regularmente com novos contédos que poderão atender a sua necessidade.\n"
            "- Após adiquirir o guia nele estará disponível um contato, caso queira um serviço exclusivo poderá receber sua necessidade sob demanda.\n"
             "Clique no botão abaixo para adquirir Manual de Alta Performance com IA e começar essa jornada transformadora por apenas 19,90."
@@ -169,6 +238,8 @@ def main():
         st.session_state.nome = ""
     if "mensagens" not in st.session_state:
         st.session_state.mensagens = []
+    if "tentativas" not in st.session_state:
+        st.session_state.tentativas = 0
 
     # ✅ Exibir histórico de mensagens
     for msg in st.session_state.mensagens:
@@ -204,9 +275,35 @@ def main():
                     "Se você chegou até aqui é sinal que ficou interessado em saber mais sobre sobre nosso produto. Então me diz, você está preparado para essa jornada de inovação?"
                 )
             else:
-                resposta = "✨ Quero te oferecer o melhor atendimento! Como devo te chamar?"
+                # Se não conseguir extrair o nome, pede novamente
+                st.session_state.tentativas += 1
+                if st.session_state.tentativas >= 3:
+                    st.session_state.nome = "amigo(a)"
+                    st.session_state.step = 1
+                    resposta = (
+                        "Vou te chamar de amigo(a) então! {random.choice(EMPATIA['entusiasmo'])}\n\n"
+                        "Se você chegou até aqui é sinal que ficou interessado em saber mais sobre sobre nosso produto. Então me diz, você está preparado para essa jornada de inovação?"
+                    )
+                else:
+                    resposta = "✨ Quero te oferecer o melhor atendimento! Por favor, me diga seu nome para continuarmos."
         else:
-            st.session_state.step += 1
+            # Verifica se estamos em um step decimal (validação de resposta)
+            if st.session_state.step % 1 == 0:  # Se for um step inteiro, avança
+                st.session_state.step += 1
+            else:  # Se for decimal (validação), mantém ou avança dependendo da resposta
+                # Lidando com tentativas repetidas de respostas inválidas
+                if st.session_state.step == 0.5 or st.session_state.step == 3.5 or st.session_state.step == 4.5:
+                    resultado, _ = verificar_resposta(user_input, "sim_nao" if st.session_state.step != 4.5 else "opcao_numerica")
+                    if resultado is not None:  # Se a resposta for válida
+                        st.session_state.step = int(st.session_state.step) + 1  # Avança para o próximo step inteiro
+                    # Se for inválida, mantém o step decimal para continuar pedindo resposta válida
+                elif st.session_state.step == 0.8 or st.session_state.step == 3.8:  # Respostas para "não"
+                    resultado, _ = verificar_resposta(user_input, "sim_nao")
+                    if resultado is True:  # Se reconsiderou e disse sim
+                        st.session_state.step = int(st.session_state.step) + 1  # Avança para o próximo step inteiro
+                    else:  # Se manteve o não ou resposta inválida
+                        st.session_state.step = 7  # Vai para o step final (despedida)
+            
             resposta = gerar_resposta(st.session_state.step, user_input)
 
         # ✅ Exibir resposta do bot
@@ -214,15 +311,12 @@ def main():
             efeito_humano(resposta)
         st.session_state.mensagens.append({"role": "assistant", "content": resposta})
 
-
-
         # ✅ Exibição do botão para adquirir o Ebook (aparece quando step >= 6)
     if st.session_state.step >= 6:
         st.write("Clique abaixo para adquirir seu Manual:")
         if st.button("Manual de Alta Performance com IA"):
             link = "https://pay.cakto.com.br/5dUKrWD"
             st.markdown(f"[Clique aqui para adquirir seu Manual de Alta Performance]({link})", unsafe_allow_html=True)
-
 
 # -----------------------------------------------------
 # Execução
